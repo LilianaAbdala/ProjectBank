@@ -7,28 +7,32 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
     
-    @IBOutlet var lblKey: UILabel!
-    @IBOutlet var email: UITextField!
-    @IBOutlet var password: UITextField!
+    var lblKey: UILabel!
+    var email: UITextField!
+    var password: UITextField!
+    var imageView: UIImageView!
     
     override func viewDidLoad() {
      super.viewDidLoad()
         view.backgroundColor = .black
-        
-        
+
         email = UITextField()
         email.frame = CGRect(x: 50, y: 400, width: 300, height: 40)
         email.backgroundColor = .white
-        email.layer.borderWidth = 2
-        email.layer.borderColor = UIColor.systemGray.cgColor
+        email.layer.cornerRadius = 20
         view.addSubview(email)
     
         password = UITextField()
         password.frame = CGRect(x: 50, y: 460, width: 300, height: 40)
         password.backgroundColor = .white
+        password.layer.cornerRadius = 20
         view.addSubview(password)
+        
+        imageView  = UIImageView(frame:CGRect(x:100, y:70, width:200, height:300));
+        imageView.image = UIImage(named:"lotus")
+        self.view.addSubview(imageView)
         
         let button = UIButton()
         button.setTitle("Entrar", for: .normal)
@@ -46,7 +50,6 @@ class ViewController: UIViewController {
         button2.frame = CGRect(x: 100, y: 670, width: 200, height: 50)
         button2.layer.cornerRadius = 25
         button2.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
-        
         
         lblKey = UILabel()
         lblKey.frame = CGRect(x: 100, y: 720, width: 200, height: 50)
